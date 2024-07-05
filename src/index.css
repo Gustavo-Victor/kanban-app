@@ -11,4 +11,5 @@
 body {
     width: 100vw; 
     background-color: rgb(2 6 23 );
+    overflow-x: hidden; 
 }

@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import { notify } from "../utils/notifications";
 import { useDrag, useDrop } from "react-dnd";
+import { HiMinusCircle } from "react-icons/hi";
 
 
 export default function TaskList({
@@ -95,10 +96,8 @@ function TaskBody({ tasks, task, handleDelete }) {
             ref={drag}
             className={` ${isDragging ? "opacity-25" : "opacity-100"} bg-gray-50 relative p-4 mt-8 shadow-md rounded-md cursor-grab dark:bg-slate-800 dark:text-slate-300`}>
             <p>{task.name}</p>
-            <button className="absolute bottom-2 right-2 text-slate-400" onClick={() => handleDelete(task.id)}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
+            <button className="absolute bottom-2 right-2 text-slate-400 dark:text-white" onClick={() => handleDelete(task.id)}>
+                <HiMinusCircle className="text-xl opacity-70" />
             </button>
         </div>
     )
