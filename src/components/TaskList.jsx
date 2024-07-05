@@ -88,7 +88,7 @@ function TaskBody({ tasks, task, handleDelete }) {
         })
     }));
 
-    console.log(isDragging)
+    // console.log(isDragging)
 
     return (
         <div
