@@ -84,7 +84,7 @@ export default function TaskForm({ setTasks, btnText }) {
                 onChange={handleChangeTask}
                 placeholder="Enter some text..."
                 maxLength={50}
-                className="rounded-md mr-4 h-12 outline-none bg-white-50 px-2 w-full md:min-w-64 mb-5 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-400"
+                className="rounded-md mr-4 h-12 outline-none bg-white-50 px-2 w-full md:w-64 mb-5 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-400"
             />
             <button className="bg-cyan-500 dark:bg-cyan-900 outline-none rounded-md text-white px-4 py-2 h-12 dark:hover:bg-cyan-800 hover:bg-cyan-600">{btnText}</button>
         </form>
