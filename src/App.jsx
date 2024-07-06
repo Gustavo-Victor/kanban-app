@@ -5,11 +5,13 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { HiMoon, HiSun } from "react-icons/hi"
 import TaskForm from "./components/TaskForm";
 import TaskSection from "./components/TaskSection";
+import Modal from "./components/Modal";
 
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
   const [theme, setTheme] = useState(JSON.parse(localStorage.getItem("theme")));
+  const [taskToUpdate, setTaskToUpdate] = useState(null); 
 
   const toggleTheme = () => {
 
@@ -53,6 +55,14 @@ export default function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Toaster position="top-center" reverseOrder={false} />
+      <Modal>
+        <TaskForm
+          tasks={tasks}
+          btnText={"Edit"}
+          setTasks={setTasks}
+          taskToUpdate={taskToUpdate}
+          setTaskToUpdate={setTaskToUpdate} />
+      </Modal>
       <div id="app" className="relative bg-slate-100 dark:bg-slate-950 w-screen h-auto min-h-screen flex flex-col items-center p-3 pb-4 gap-8 overflow-auto">
         <h1 className="text-2xl mt-16 sm:mt-3 text-slate-950 font-bold dark:text-slate-200">Kanban App</h1>
         <button onClick={toggleTheme} className="absolute sm:top-5 sm:right-5 bg-slate-200 flex items-center justify-center hover:bg-slate-300 text-slate-500 p-3 rounded-full dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200">
@@ -63,12 +73,15 @@ export default function App() {
           )}
         </button>
         <TaskForm
+          tasks={tasks}
           btnText={"Create"}
           setTasks={setTasks} />
 
         <TaskSection
           tasks={tasks}
           setTasks={setTasks}
+          taskToUpdate={taskToUpdate}
+          setTaskToUpdate={setTaskToUpdate}
         />
       </div>
     </DndProvider>

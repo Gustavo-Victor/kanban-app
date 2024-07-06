@@ -13,3 +13,7 @@ body {
     background-color: rgb(2 6 23 );
     overflow-x: hidden; 
 }
+
+.hide {
+    display: none;
+}
